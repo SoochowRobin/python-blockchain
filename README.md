@@ -8,3 +8,19 @@ The <b>genesis block</b> is the first block in the blockchain. Since all blocks 
 
 Encoding is the process of converting data into a particular format (such as the utf-8 format). For example, encoding a string in utf-8, would produce the equivalent byte string in utf-8 characters. Decoding converts the encoded data back into its original form.
 
+
+The entire project could be divided into several sections:
+
+Section 2: Test the application
+Listed required python package for this project, and other developers could jusr run 'pip3 install -r requirements.txt'. Continuous update requirements.txt file to make future collaboration as easy as possible. 
+
+
+** Activate the vitural environment **
+'''
+source blockchain-env/activate
+'''
+
+** Install all package **
+'''
+pip3 install -r requirements.txt 
+'''
