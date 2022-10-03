@@ -15,12 +15,19 @@ Section 2: Test the application
 Listed required python package for this project, and other developers could jusr run 'pip3 install -r requirements.txt'. Continuous update requirements.txt file to make future collaboration as easy as possible. 
 
 
-** Activate the vitural environment **
+**Activate the vitural environment**
 '''
 source blockchain-env/activate
 '''
 
-** Install all package **
+**Install all package**
 '''
 pip3 install -r requirements.txt 
+'''
+
+**Run the tests**
+Make sure to activate the vitural environment
+
+'''
+python3 -m pytest backend/tests
 '''
