@@ -2,6 +2,7 @@ import time
 
 from backend.blockchain.block import Block, GENESIS_DATA
 from backend.config import MINE_RATE, SECONDS
+from backend.util.hex_to_binary import hex_to_binary
 
 def test_mine_block():
 	last_block = Block.genesis()
@@ -12,7 +13,7 @@ def test_mine_block():
 	assert isinstance(block, Block)
 	assert block.data == data 
 	assert block.last_hash == last_block.hash
-	assert block.hash[0:block.difficulty] == '0' * block.difficulty
+	assert hex_to_binary(block.hash)[0:block.difficulty] == '0' * block.difficulty
 
 
 def test_genesis():
@@ -51,4 +52,3 @@ def test_mined_block_difficulty_limits_at_1():
 	mined_block = Block.mine_block(last_block, 'bar')
 
 	assert mined_block.difficulty == 1
-	
