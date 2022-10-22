@@ -17,7 +17,7 @@ Listed required python package for this project, and other developers could jusr
 
 **Activate the vitural environment**
 '''
-source blockchain-env/activate
+source blockchain-env/bin/activate
 '''
 
 **Install all package**
@@ -26,7 +26,7 @@ pip3 install -r requirements.txt
 '''
 
 **Run the tests**
-Make sure to activate the vitural environment
+Make sure to activate the vitural environment.
 
 '''
 python3 -m pytest backend/tests

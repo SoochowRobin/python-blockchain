@@ -33,10 +33,17 @@ def test_genesis():
 
 def test_quickly_mined_block():
 	last_block = Block.mine_block(Block.genesis(), 'foo')
+	mined_block = Block.mine_block(last_block, 'bar')
+
+	assert mined_block.difficulty == last_block.difficulty + 1 
+
+def test_slowly_mined_block():
+	last_block = Block.mine_block(Block.genesis(), 'foo')
 	time.sleep(MINE_RATE // SECONDS) # 4s delay now 
 	mined_block = Block.mine_block(last_block, 'bar')
 
-	assert mined_block.difficulty == last_block.difficulty - 1 
+	assert last_block.difficulty == mined_block.difficulty + 1
+
 
 
 def test_mined_block_difficulty_limits_at_1():
@@ -54,6 +61,7 @@ def test_mined_block_difficulty_limits_at_1():
 
 	assert mined_block.difficulty == 1
 
+# avoid duplicating code 
 @pytest.fixture
 def last_block():
 	return Block.genesis()
