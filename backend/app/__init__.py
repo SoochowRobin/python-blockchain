@@ -2,6 +2,7 @@
 import os
 import requests
 import random
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -12,7 +13,7 @@ from backend.wallet.transaction_pool import TransactionPool
 from backend.pubsub import PubSub
 
 app = Flask(__name__)
-CORS(app, resources={r'/*': {'origins': 'http://127.0.0.1:3000'}})
+CORS(app, resources={ r'/*': { 'origins': 'http://localhost:3000' } })
 blockchain = Blockchain()
 wallet = Wallet(blockchain)
 transaction_pool = TransactionPool()
@@ -46,8 +47,8 @@ def route_blockchain_mine():
     block = blockchain.chain[-1]
     pubsub.broadcast_block(block)
     transaction_pool.clear_blockchain_transactions(blockchain)
-    return jsonify(block.to_json())
 
+    return jsonify(block.to_json())
 
 @app.route('/wallet/transact', methods=['POST'])
 def route_wallet_transact():
@@ -68,12 +69,27 @@ def route_wallet_transact():
         )
 
     pubsub.broadcast_transaction(transaction)
+    transaction_pool.set_transaction(transaction)
 
     return jsonify(transaction.to_json())
 
 @app.route('/wallet/info')
 def route_wallet_info():
-    return jsonify({'address':wallet.address, 'balance': wallet.balance})
+    return jsonify({ 'address': wallet.address, 'balance': wallet.balance })
+
+@app.route('/known-addresses')
+def route_known_addresses():
+    known_addresses = set()
+
+    for block in blockchain.chain:
+        for transaction in block.data:
+            known_addresses.update(transaction['output'].keys())
+
+    return jsonify(list(known_addresses))
+
+@app.route('/transactions')
+def route_transactions():
+    return jsonify(transaction_pool.transaction_data())
 
 ROOT_PORT = 5000
 PORT = ROOT_PORT
@@ -101,6 +117,5 @@ if os.environ.get('SEED_DATA') == 'True':
         transaction_pool.set_transaction(
             Transaction(Wallet(), Wallet().address, random.randint(2, 50))
         )
-
 
 app.run(port=PORT)
