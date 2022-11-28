@@ -65,26 +65,26 @@ export SEED_DATA = True && Python3 -m backend.app
 
 ### `Python Fundamentals`
 
-Here's a list that highlights the main lessons from the section: \
-Functions in python are mechanism to re-execute lines of code encapsulated within the function body. Functions return output values, usually based on one or more inputs. They also have side effects - portions of the function (like prints) that don't affect the return value. \
+Here's a list that highlights the main lessons from the section: 
+Functions in python are mechanism to re-execute lines of code encapsulated within the function body. Functions return output values, usually based on one or more inputs. They also have side effects - portions of the function (like prints) that don't affect the return value. 
 
-Comparison operators allow you to control the execution of your code by comparing two values and returning a boolean result. For example, to check if two values are equal, use: ==. Or to check if a value is greater than or equal to, use: >=. \
+Comparison operators allow you to control the execution of your code by comparing two values and returning a boolean result. For example, to check if two values are equal, use: ==. Or to check if a value is greater than or equal to, use: >=. 
 
 ### `Blockchain Application`
 
-The blockchain is list of blocks where each block represents a unit of storage for data. The list is called a chain because each block references the block before it, creating (chain) links between between blocks. In a blockchain that supports a cryptocurrency, blocks store transactions. \
+The blockchain is list of blocks where each block represents a unit of storage for data. The list is called a chain because each block references the block before it, creating (chain) links between between blocks. In a blockchain that supports a cryptocurrency, blocks store transactions. 
 
-A python module is a file that contains various Python definitions and statements. For example, the block.py file serves as the block module for the project. The __name__ value in Python reflects the name of the module it's used within, except when the file is directly executed. When a file is directly executed the __name__ value becomes '__main__'. \
+A python module is a file that contains various Python definitions and statements. For example, the block.py file serves as the block module for the project. The __name__ value in Python reflects the name of the module it's used within, except when the file is directly executed. When a file is directly executed the __name__ value becomes '__main__'. 
 
-Mining blocks refers to the process of running a computationally expensive algorithm in order to create new blocks for the blockchain. We'll expand on this in the section on Proof of Work. \
+Mining blocks refers to the process of running a computationally expensive algorithm in order to create new blocks for the blockchain. We'll expand on this in the section on Proof of Work. 
 
-The genesis block is the first block in the blockchain. Since all blocks must reference the block that came before it, the genesis block serves as a hardcoded starter block for the chain. \
+The genesis block is the first block in the blockchain. Since all blocks must reference the block that came before it, the genesis block serves as a hardcoded starter block for the chain. 
 
-A hashing algorithm generates a unique output for every unique output. In the case of this project, we're using the sha-256 algorithm, which produces a unique 256 character hash in binary, and a 64 character hash in hexadecimal. \
+A hashing algorithm generates a unique output for every unique output. In the case of this project, we're using the sha-256 algorithm, which produces a unique 256 character hash in binary, and a 64 character hash in hexadecimal. 
 
-Encoding is the process of converting data into a particular format (such as the utf-8 format). For example, encoding a string in utf-8, would produce the equivalent byte string in utf-8 characters. Decoding converts the encoded data back into its original form. \
+Encoding is the process of converting data into a particular format (such as the utf-8 format). For example, encoding a string in utf-8, would produce the equivalent byte string in utf-8 characters. Decoding converts the encoded data back into its original form. 
 
-A lambda in python is a function that can be declared inline. In the project so far, we've used it for the map() method which can transform a list into a new list. The map function's first parameter is a lambda, which defines how to transform each item in the original list to produce the new list. \
+A lambda in python is a function that can be declared inline. In the project so far, we've used it for the map() method which can transform a list into a new list. The map function's first parameter is a lambda, which defines how to transform each item in the original list to produce the new list. 
 
 
 
